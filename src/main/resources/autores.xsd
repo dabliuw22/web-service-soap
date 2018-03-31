@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://leysoft.com/autor" 
+	xmlns:tns="http://leysoft.com/autor" elementFormDefault="qualified">
+	
+	<!-- Autor -->
+	<xs:complexType name="autor">
+		<xs:sequence>
+			<xs:element name="id" type="xs:int" />
+			<xs:element name="name" type="xs:string" />
+		</xs:sequence>
+	</xs:complexType>
+	
+	<!-- add Autor -->
+	<xs:element name="addAutorRequest">
+        <xs:complexType>
+			<xs:sequence>
+				<xs:element name="name" type="xs:string" />
+			</xs:sequence>
+		</xs:complexType>
+    </xs:element>
+	
+	<xs:element name="addAutorResponse">
+        <xs:complexType>
+			<xs:sequence>
+				<xs:element name="autor" type="tns:autor" />
+			</xs:sequence>
+		</xs:complexType>
+    </xs:element>
+	
+	<!-- get Autor -->
+	<xs:element name="getAutorRequest">
+        <xs:complexType>
+			<xs:sequence>
+				<xs:element name="id" type="xs:int" />
+			</xs:sequence>
+		</xs:complexType>
+    </xs:element>
+	
+	<xs:element name="getAutorResponse">
+        <xs:complexType>
+			<xs:sequence>
+				<xs:element name="autor" type="tns:autor" />
+			</xs:sequence>
+		</xs:complexType>
+    </xs:element>
+    
+    <!-- get All Autor -->
+    <xs:element name="getAllAutorRequest">
+    	<xs:complexType />
+    </xs:element>
+    
+    <xs:element name="getAllAutorResponse">
+        <xs:complexType>
+			<xs:sequence>
+				<xs:element name="autores" type="tns:autor" maxOccurs="unbounded" />
+			</xs:sequence>
+		</xs:complexType>
+    </xs:element>
+    
+    <!-- update Autor -->
+    <xs:element name="updateAutorRequest">
+        <xs:complexType>
+			<xs:sequence>
+				<xs:element name="id" type="xs:int" />
+				<xs:element name="autor" type="tns:autor" />
+			</xs:sequence>
+		</xs:complexType>
+    </xs:element>
+    
+    <xs:element name="updateAutorResponse">
+        <xs:complexType>
+			<xs:sequence>
+				<xs:element name="autor" type="tns:autor" />
+			</xs:sequence>
+		</xs:complexType>
+    </xs:element>
+    
+    <!-- delete Autor -->
+    <xs:element name="deleteAutorRequest">
+        <xs:complexType>
+			<xs:sequence>
+				<xs:element name="id" type="xs:int" />
+			</xs:sequence>
+		</xs:complexType>
+    </xs:element>
+    
+    <xs:element name="deleteAutorResponse">
+        <xs:complexType>
+			<xs:sequence>
+				<xs:element name="status" type="xs:boolean" />
+			</xs:sequence>
+		</xs:complexType>
+    </xs:element>
+</xs:schema>
